@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Joga Bonito</title>
+    <link rel="icon" type="image/x-icon" href="brazil-flag.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            background-image: url('photo-1431324155629-1a6deb1dec8d.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .signin-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+        }
+
+        .signin-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff0099;
+        }
+
+        .signin-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .signin-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .signin-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0099;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Pixelify Sans', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .signin-container button:hover {
+            background-color: #ff0066;
+        }
+
+        .signin-container p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .signin-container a {
+            color: #ff0099;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .signin-container a:hover {
+            color: #ff0066;
+            text-decoration: underline;
+        }
+
+        /* Стили для скруглённого футера */
+        .rounded-footer {
+            border-radius: 20px;
+            margin: 20px auto;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="main.html" class="logo">Joga Bonito</a>
+        <nav>
+            <ul class="nav-center">
+                <li><a href="#">New</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="find-store.html">Find a store</a></li>
+                <li><a href="signin.html">Sign in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Форма входа -->
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form id="signinForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+            <button type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p> 
+    </div>
+
+    
+    <footer class="rounded-footer">
+        <p>© 2025 Joga Bonito. Все права защищены.</p>
+        <ul class="social-links">
+            <li><a href="#"><img src="inst.png" alt="Instagram" class="social-icon"></a></li>
+            <li><a href="#"><img src="twitter.png" alt="Twitter" class="social-icon"></a></li>
+            <li><a href="#"><img src="telegram.png" alt="Telegram" class="social-icon"></a></li>
+        </ul>
+    </footer>
+
+   <script src="signin.js"></script>
+   <script src="userlog.js"></script>
+</body>
+</html>

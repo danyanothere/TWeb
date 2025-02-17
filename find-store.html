@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Store - Joga Bonito</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="icon" type="image/x-icon" href="brazil-flag.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .store-locator {
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff; 
+        }
+        .store-locator h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .store-list {
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.7); 
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 500px;
+            overflow-y: auto; 
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent; 
+        }
+        .store-list h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            background-color: #aeaeae;
+            width: 80%;
+            max-width: 400px;
+            margin-right: 10px;
+            font-family: 'Pixelify Sans';
+        }
+        .search-box button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff0099;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Pixelify Sans';
+        }
+        .search-box button:hover {
+            background-color: #ff0066;
+        }
+        .reset-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ff0099;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+        .reset-button:hover {
+            color: #ff0066;
+        }
+        .store-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .store-list li {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .store-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .store-list li strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #ff0099;
+        }
+        .back-button {
+            display: block;
+            margin: 40px auto; 
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+            width: fit-content; 
+            font-family: 'Pixelify Sans';
+        }
+        .back-button:hover {
+            background-color: #ff0099;
+            color: #000;
+        }
+
+        
+       
+
+
+    </style>
+</head>
+
+<body style="background-image: url('photo-1431324155629-1a6deb1dec8d.jpg'); background-size: cover; background-attachment: fixed; background-position: center;">
+    <header>
+        <a href="main.html" class="logo">Joga Bonito</a>
+        <nav>
+            <ul class="nav-center">
+                <li><a href="#">New</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="find-store.html">Find a store</a></li> 
+                <li id="cartLink" style="display: none;"><a href="cart.html">Cart</a></li>
+            <!-- Кнопка входа/выхода -->
+            <li id="authLink"><a href="sign-in.html">Sign in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="store-locator">
+        <div class="store-list">
+            <h2>Find a Joga Bonito Store</h2>
+            <div class="search-box">
+                <button class="reset-button" onclick="resetSearch()">↺</button> <!-- Кнопка сброса -->
+                <input type="text" id="locationInput" placeholder="Search">
+                <button onclick="filterStores()">Find</button>
+            </div>
+            <ul id="stores">
+                <!-- Список магазинов будет здесь -->
+            </ul>
+        </div>
+
+        <a href="main.html" class="back-button">Back</a>
+    </div>
+
+    <script>
+        // Список магазинов в Молдове
+        const stores = [
+            {
+                name: "Магазин Joga Bonito в Кишиневе (Центр)",
+                address: "ул. Штефана чел Маре, 15",
+                phone: "+373 22 123-456",
+                city: "Кишинев"
+            },
+            {
+                name: "Магазин Joga Bonito в Кишиневе (Ботаника)",
+                address: "ул. Албишоара, 10",
+                phone: "+373 22 654-321",
+                city: "Кишинев"
+            },
+            {
+                name: "Магазин Joga Bonito в Кишиневе (Рышкановка)",
+                address: "ул. Мирон Костин, 5",
+                phone: "+373 22 789-123",
+                city: "Кишинев"
+            },
+            {
+                name: "Магазин Joga Bonito в Бельцах",
+                address: "ул. Пушкина, 25",
+                phone: "+373 231 123-45",
+                city: "Бельцы"
+            },
+            {
+                name: "Магазин Joga Bonito в Тирасполе",
+                address: "ул. 25 Октября, 10",
+                phone: "+373 533 123-45",
+                city: "Тирасполь"
+            },
+            {
+                name: "Магазин Joga Bonito в Кагуле",
+                address: "ул. Ленина, 5",
+                phone: "+373 299 123-45",
+                city: "Кагул"
+            },
+            {
+                name: "Магазин Joga Bonito в Оргееве",
+                address: "ул. Мира, 8",
+                phone: "+373 235 123-45",
+                city: "Оргеев"
+            },
+            {
+                name: "Магазин Joga Bonito в Сороках",
+                address: "ул. Независимости, 12",
+                phone: "+373 230 123-45",
+                city: "Сороки"
+            },
+            {
+                name: "Магазин Joga Bonito в Комрате",
+                address: "ул. Ленина, 7",
+                phone: "+373 298 123-45",
+                city: "Комрат"
+            },
+            {
+                name: "Магазин Joga Bonito в Единцах",
+                address: "ул. Штефана чел Маре, 3",
+                phone: "+373 246 123-45",
+                city: "Единцы"
+            },
+            {
+                name: "Магазин Joga Bonito в Бендерах",
+                address: "ул. Суворова, 20",
+                phone: "+373 552 123-45",
+                city: "Бендеры"
+            },
+            {
+                name: "Магазин Joga Bonito в Унгенах",
+                address: "ул. Мира, 14",
+                phone: "+373 236 123-45",
+                city: "Унгены"
+            },
+            {
+                name: "Магазин Joga Bonito в Каушанах",
+                address: "ул. Ленина, 9",
+                phone: "+373 243 123-45",
+                city: "Каушаны"
+            },
+            {
+                name: "Магазин Joga Bonito в Дубоссарах",
+                address: "ул. Победы, 7",
+                phone: "+373 248 123-45",
+                city: "Дубоссары"
+            }
+        ];
+
+        // Функция для отображения всех магазинов
+        function displayStores(storesToDisplay) {
+            const storeList = document.getElementById('stores');
+            storeList.innerHTML = ''; // Очищаем список
+
+            storesToDisplay.forEach(store => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <strong>${store.name}</strong>
+                    <div>Адрес: ${store.address}</div>
+                    <div>Телефон: ${store.phone}</div>
+                `;
+                storeList.appendChild(li);
+            });
+        }
+
+        // Функция для фильтрации магазинов по городу
+        function filterStores() {
+            const location = document.getElementById('locationInput').value.toLowerCase();
+            const filteredStores = stores.filter(store => store.city.toLowerCase().includes(location));
+            displayStores(filteredStores);
+        }
+
+        // Функция для сброса поиска
+        function resetSearch() {
+            document.getElementById('locationInput').value = ''; // Очищаем поле ввода
+            displayStores(stores); // Показываем все магазины
+        }
+
+        // Обработчик события для нажатия Enter
+        document.getElementById('locationInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') { // Если нажата клавиша Enter
+                filterStores(); // Вызываем функцию поиска
+            }
+        });
+
+        // Обработчик события для очистки поля ввода
+        document.getElementById('locationInput').addEventListener('input', function () {
+            if (this.value === '') { // Если поле ввода пустое
+                displayStores(stores); // Показываем все магазины
+            }
+        });
+
+        // Показываем все магазины при загрузке страницы
+        displayStores(stores);
+    </script>
+    <script src="userlog.js"></script>
+    <footer>
+        <p>© 2025 Joga Bonito. Все права защищены.</p>
+        <ul class="social-links">
+            <li><a href="#"><img src="inst.png" alt="Instagram" class="social-icon"></a></li>
+            <li><a href="#"><img src="twitter.png" alt="Twitter" class="social-icon"></a></li>
+            <li><a href="#"><img src="telegram.png" alt="Telegram" class="social-icon"></a></li>
+        </ul>
+    </footer>
+</body>
+</html>
