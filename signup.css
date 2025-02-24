@@ -1,0 +1,106 @@
+select {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+    appearance: none; /* Убираем стандартный стиль браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Кастомная стрелка */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Убираем стрелку для всех input */
+input {
+    background-image: none !important; /* Убираем стрелку */
+}
+/* Общие стили для input и select */
+input, select {
+    width: 90%;
+    padding: 12px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #ff0099;
+    box-shadow: 0 0 8px rgba(255, 0, 153, 0.5);
+    outline: none;
+}
+
+/* Стили для select */
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Стили для кнопок */
+button {
+    width: 50%;
+    padding: 12px;
+    background-color: #ff0099;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #ff0066;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Стили для текста и ссылок */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+a {
+    color: #ff0099;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff0066;
+    text-decoration: underline;
+}
