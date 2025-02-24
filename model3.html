@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <header>
@@ -32,31 +31,42 @@
             </ul>
         </nav>
     </header>
-
     <main class="product-page">
         <div class="product-gallery">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="boots1.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe2.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe3.jpg" alt="Nike Mercurial Superfly"></div>
+                    <div class="swiper-slide">
+                        <img src="boots3.jpg" alt="Nike Mercurial ">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/mercurial.jpg" alt="Nike Mercurial ">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/mercurial1.jpg" alt="Nike Mercurial">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/mercurial2.jpg" alt="Nike Mercurial ">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/mercurial3.jpg" alt="Nike Mercurial">
+                    </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
             <div class="thumbnails">
-                <img src="product/mbappe.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(0)">
-                <img src="product/mbappe2.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(1)">
-                <img src="product/mbappe3.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(2)">
+                <img src="product/mercurial.jpg" alt="Nike Zoom Mercurial Vapor 15 Elite" onclick="changeImage(0)">
+                <img src="product/mercurial1.jpg" alt="Nike Zoom Mercurial Vapor 15 Elite" onclick="changeImage(1)">
+                <img src="product/mercurial2.jpg" alt="Nike Zoom Mercurial Vapor 15 Elite" onclick="changeImage(2)">
+                <img src="product/mercurial3.jpg" alt="Nike Zoom Mercurial Vapor 15 Elite" onclick="changeImage(3)">
             </div>
         </div>
-
         <div class="product-info">
-            <h1 class="product-title">Nike Mercurial Superfly</h1>
-            <p class="product-description">Легендарные бутсы для скорости и контроля. Идеальный выбор для профессионалов и любителей.</p>
-            <div class="product-price">$250</div>
-
+            <h1 class="product-title">Nike Zoom Mercurial Vapor 15 Elite</h1>
+            <p class="product-description">
+                Легендарные бутсы для скорости и контроля. Идеальный выбор для профессионалов и любителей.
+            </p>
+            <div class="product-price">$400</div>
             <div class="size-selector">
                 <label for="size">Size:</label>
                 <select id="size">
@@ -71,11 +81,9 @@
                     <option value="45">45</option>
                 </select>
             </div>
-
             <button class="buy-now" onclick="addToCart()">Add to Cart</button>
         </div>
     </main>
-
     <footer>
         <p>© 2025 Joga Bonito. Все права защищены.</p>
         <ul class="social-links">
@@ -84,7 +92,6 @@
             <li><a href="#"><img src="telegram.png" alt="Telegram" class="social-icon"></a></li>
         </ul>
     </footer>
-
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper-container', {
@@ -94,20 +101,17 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-
         function changeImage(index) {
             swiper.slideTo(index);
         }
-
         function addToCart() {
             const product = {
-                name: "Nike Mercurial Superfly",
-                price: 250,
-                image: "boots1.jpg",
+                name: "Nike Zoom Mercurial Vapor 15 Elite",
+                price: 400,
+                image: "boots3.jpg",
                 size: document.getElementById('size').value,
                 quantity: 1
             };
-
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existingProduct = cart.find(item => item.name === product.name && item.size === product.size);
             if (existingProduct) {
@@ -115,7 +119,6 @@
             } else {
                 cart.push(product);
             }
-
             localStorage.setItem('cart', JSON.stringify(cart));
             const addToCartButton = document.querySelector('.buy-now');
             addToCartButton.classList.add('added');
@@ -123,16 +126,19 @@
             updateCartCount();
             alert("Product added to cart!");
         }
-
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartCount = document.getElementById('cartCount');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems > 0 ? `(${totalItems})` : '';
+            if (cart.length > 0) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = `(${totalItems})`;
+            } else {
+                cartCount.textContent = '';
+            }
         }
-
         document.addEventListener('DOMContentLoaded', updateCartCount);
     </script>
     <script src="userlog.js"></script>
 </body>
 </html>
+

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="css.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="product.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> <!--свайпер врубил-->
 </head>
 <body>
     <header>
@@ -24,6 +23,7 @@
                 <li><a href="#">Kids</a></li>
                 <li><a href="#">Sale</a></li>
             </ul>
+
             <ul class="nav-right">
                 <li><a href="about-us.html">About us</a></li>
                 <li><a href="find-store.html">Find a store</a></li>
@@ -34,29 +34,41 @@
     </header>
 
     <main class="product-page">
-        <div class="product-gallery">
+         <div class="product-gallery">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="boots1.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe2.jpg" alt="Nike Mercurial Superfly"></div>
-                    <div class="swiper-slide"><img src="product/mbappe3.jpg" alt="Nike Mercurial Superfly"></div>
+                    <div class="swiper-slide">
+                        <img src="boots2.jpg" alt="Nike Mercurial Superfly">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/vapor.jpg" alt="Nike Mercurial Superfly">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/vapor1.jpg" alt="Nike Mercurial Superfly">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/vapor2.jpg" alt="Nike Mercurial Superfly">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="product/vapor3.jpg" alt="Nike Mercurial Superfly">
+                </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
             <div class="thumbnails">
-                <img src="product/mbappe.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(0)">
-                <img src="product/mbappe2.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(1)">
-                <img src="product/mbappe3.jpg" alt="Nike Mercurial Superfly" onclick="changeImage(2)">
+                <img src="product/vapor.jpg" alt="Nike Vapor Edge Pro 2" onclick="changeImage(0)">
+                <img src="product/vapor1.jpg" alt="Nike Vapor Edge Pro 2" onclick="changeImage(1)">
+                <img src="product/vapor2.jpg" alt="Nike Vapor Edge Pro 2" onclick="changeImage(2)">
+                <img src="product/vapor3.jpg" alt="Nike Vapor Edge Pro 2" onclick="changeImage(3)">
             </div>
         </div>
-
         <div class="product-info">
-            <h1 class="product-title">Nike Mercurial Superfly</h1>
-            <p class="product-description">Легендарные бутсы для скорости и контроля. Идеальный выбор для профессионалов и любителей.</p>
-            <div class="product-price">$250</div>
-
+            <h1 class="product-title">Nike Vapor Edge Pro 2</h1>
+            <p class="product-description">
+                Легендарные бутсы для скорости и контроля. Идеальный выбор для профессионалов и любителей.
+            </p>
+            <div class="product-price">$300</div>
             <div class="size-selector">
                 <label for="size">Size:</label>
                 <select id="size">
@@ -71,7 +83,6 @@
                     <option value="45">45</option>
                 </select>
             </div>
-
             <button class="buy-now" onclick="addToCart()">Add to Cart</button>
         </div>
     </main>
@@ -84,53 +95,70 @@
             <li><a href="#"><img src="telegram.png" alt="Telegram" class="social-icon"></a></li>
         </ul>
     </footer>
-
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper-container', {
-            loop: true,
+            loop: true, 
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next', 
+                prevEl: '.swiper-button-prev', 
             },
         });
 
+        
         function changeImage(index) {
-            swiper.slideTo(index);
+            swiper.slideTo(index); // Переключаем слайдер на выбранное изображение
         }
 
+        // Функция для добавления товара в корзину
         function addToCart() {
             const product = {
-                name: "Nike Mercurial Superfly",
-                price: 250,
-                image: "boots1.jpg",
+                name: "Nike Vapor Edge Pro 2",
+                price: 300,
+                image: "boots2.jpg",
                 size: document.getElementById('size').value,
                 quantity: 1
             };
 
+            // Получаем текущую корзину из localStorage
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Проверяем, есть ли уже такой товар в корзине
             const existingProduct = cart.find(item => item.name === product.name && item.size === product.size);
             if (existingProduct) {
-                existingProduct.quantity += 1;
+                existingProduct.quantity += 1; // Увеличиваем количество
             } else {
-                cart.push(product);
+                cart.push(product); // Добавляем новый товар
             }
 
+            // Сохраняем корзину в localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Анимация кнопки
             const addToCartButton = document.querySelector('.buy-now');
             addToCartButton.classList.add('added');
             setTimeout(() => addToCartButton.classList.remove('added'), 500);
+
+            // Обновляем счётчик корзины
             updateCartCount();
+
             alert("Product added to cart!");
         }
 
+        // Функция для обновления счётчика корзины
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartCount = document.getElementById('cartCount');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems > 0 ? `(${totalItems})` : '';
+
+            if (cart.length > 0) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = `(${totalItems})`;
+            } else {
+                cartCount.textContent = '';
+            }
         }
 
+        // Обновляем счётчик при загрузке страницы
         document.addEventListener('DOMContentLoaded', updateCartCount);
     </script>
     <script src="userlog.js"></script>
