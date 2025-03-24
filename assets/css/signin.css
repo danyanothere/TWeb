@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background-image: url('product/photo-1431324155629-1a6deb1dec8d.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.signin-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+}
+
+.signin-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff0099;
+}
+
+.signin-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+}
+
+.signin-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+}
+
+.signin-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0099;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signin-container button:hover {
+    background-color: #ff0066;
+}
+
+.signin-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.signin-container a {
+    color: #ff0099;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.signin-container a:hover {
+    color: #ff0066;
+    text-decoration: underline;
+}
+
+
+.rounded-footer {
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}

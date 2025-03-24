@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.logo {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-left: 2%;
+}
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-right {
+    display: flex;
+    margin-right: 2%;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    position: relative;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: white;
+    opacity: 0.5;
+}
+nav ul li a {
+    font-family: 'Pixelify Sans', sans-serif;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    color: #ff0099;
+}
+.about-us {
+    padding: 100px 20px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.about-us h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #ff0099;
+}
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+.about-us img {
+    max-width: 100%; 
+    width: 8%;
+    height: auto; 
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-family: 'Pixelify Sans';
+}
+.back-button:hover {
+    background-color: #ff0099;
+    color: #000;
+}

@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background-image: url('photo-1431324155629-1a6deb1dec8d.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.signup-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.signup-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff0099;
+}
+
+.signup-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    width: 90%;
+    margin: 0 auto 5px;
+}
+
+.signup-container input,
+.signup-container select {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+.signup-container select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.signup-container button {
+    width: 50%;
+    padding: 10px;
+    background-color: #ff0099;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+}
+
+.signup-container button:hover {
+    background-color: #ff0066;
+}
+
+.signup-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.signup-container a {
+    color: #ff0099;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.signup-container a:hover {
+    color: #ff0066;
+    text-decoration: underline;
+}
+
+#step2 {
+    display: none;
+}
+select {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+    appearance: none; /* Убираем стандартный стиль браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Кастомная стрелка */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Убираем стрелку для всех input */
+input {
+    background-image: none !important; /* Убираем стрелку */
+}
+/* Общие стили для input и select */
+input, select {
+    width: 90%;
+    padding: 12px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #fff;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #ff0099;
+    box-shadow: 0 0 8px rgba(255, 0, 153, 0.5);
+    outline: none;
+}
+
+/* Стили для select */
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Стили для кнопок */
+button {
+    width: 50%;
+    padding: 12px;
+    background-color: #ff0099;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #ff0066;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Стили для текста и ссылок */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+a {
+    color: #ff0099;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff0066;
+    text-decoration: underline;
+}
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+input:invalid {
+    border-color: red; /* Подсветка невалидных полей */
+}
